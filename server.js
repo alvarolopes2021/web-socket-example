@@ -16,7 +16,7 @@ const server = app.listen(3000, () => {
 
 const io = socketIo(server, {
     cors: {
-        origin: "http://192.168.93.58:8887",
+        origin: "http://localhost:8887",
         methods: ["GET", "POST"],
         allowedHeaders: ["my-custom-header"]
     }
