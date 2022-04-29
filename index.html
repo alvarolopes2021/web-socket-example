@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Socket Client</title>
+		<script src='http://192.168.93.58:3000/socket.io/socket.io.js'></script>
+	</head>
+	
+	<body>
+		<script>
+			let el;
+			
+			const socket = io('http://192.168.93.58:3000', {				
+				extraHeaders: {
+					"my-custom-header": "abcd"
+				}
+			});
+			
+			socket.on("connect", () => {
+			  console.log('connection id: ', socket.id);
+			});
+			
+			socket.on('time', (timeString) => {
+				el = document.getElementById('server-time');
+				el.innerHTML = timeString;
+			});
+		</script>
+		
+		<H1 id='server-time'> </H1>
+		
+		
+	</body>
+
+
+</html>
